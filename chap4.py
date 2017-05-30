@@ -17,9 +17,9 @@ canvas.place(x = 0, y = 0)
 canvas.create_image(320, 220, image = img1, tag = "illust")
 
 #ラベル配置
-serihu_text = tkinter.Label(text = "セリフ１")
+serihu_text = tkinter.Label(text = "王様「魔王を倒したら褒美をやるぞ！」")
 serihu_text.place(x = 160, y = 10)
-sys_text = tkinter.Label(text = "数字を入力", fg  ="red")
+sys_text = tkinter.Label(text = "褒美はいくらあげますか？", fg  ="red")
 sys_text.place(x = 180, y = 380)
 
 #入力ボックス配置
@@ -37,9 +37,11 @@ def btn_click():
     if gold >= 5000:
         canvas.delete("illust")
         canvas.create_image(320, 220, image = img2, tag = "illust")
-        serihu_text["text"] = "セリフ２"
+        serihu_text["text"] = "勇者「よーし私に任せなさい。」"
     else:
-        serihu_text["text"] = "セリフ３"
+        canvas.delete("illust")
+        serihu_text.place(x = 160, y = 100)
+        serihu_text["text"] = "志願者は誰も来ませんでした。"        
     sys_text.destroy()
     button["state"] = "disable"
     entry["state"] = "disable"
